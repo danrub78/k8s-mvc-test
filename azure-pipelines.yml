@@ -29,3 +29,8 @@ stages:
         Dockerfile: '**/Dockerfile'
         tags: |
           $(tag)
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(Pipeline.Workspace)'
+        artifact: 'k8s-web-app'
+        publishLocation: 'pipeline'
